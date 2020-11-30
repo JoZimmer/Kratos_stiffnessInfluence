@@ -1,0 +1,274 @@
+{
+    "problem_data"    : {
+        "problem_name"  : "generic_highrise",
+        "parallel_type" : "OpenMP",
+        "echo_level"    : 1,
+        "start_time"    : 0.0,
+        "end_time"      : 600
+    },
+    "solver_settings"  : {
+        "solver_type"                        : "Dynamic",
+        "model_part_name"                    : "Structure",
+        "domain_size"                        : 3,
+        "echo_level"                         : 1,
+        "analysis_type"                      : "non_linear",
+        "time_integration_method"            : "implicit",
+        "scheme_type"                        : "bossak",
+        "model_import_settings"              : {
+            "input_type"     : "mdpa",
+            "input_filename" : "generic_highrise"
+        },
+        "material_import_settings"           : {
+            "materials_filename" : "StructuralMaterials1.json"
+        },
+        "time_stepping"                      : {
+            "time_step" : 0.02
+        },
+        "line_search"                        : false,
+        "convergence_criterion"              : "displacement_criterion",
+        "displacement_relative_tolerance"    : 1e-6,
+        "displacement_absolute_tolerance"    : 1e-8,
+        "residual_relative_tolerance"        : 1e-6,
+        "residual_absolute_tolerance"        : 1e-8,
+        "max_iteration"                      : 15,
+        "problem_domain_sub_model_part_list" : ["Parts_Outrigger_1","Parts_Outrigger_2","Parts_Outrigger_3","Parts_Outrigger_4","Parts_Core_walls_1","Parts_Core_walls_2","Parts_Core_walls_3","Parts_Core_walls_4","Parts_Plates_1","Parts_Plates_2","Parts_Plates_3","Parts_Plates_4","Parts_Columns_1","Parts_Columns_2","Parts_Columns_3","Parts_Columns_4","Parts_Beams","Parts_Facade","Parts_fix","Parts_truss"],
+        "processes_sub_model_part_list"      : ["DISPLACEMENT_Dirichlet_line","DISPLACEMENT_Dirichlet_point","ROTATION_Dirichlet_point","PointLoad3D_Interface_Plates"],
+        "rotation_dofs"                      : true
+    },
+    "processes"        : {
+        "constraints_process_list" : [{
+            "python_module" : "assign_vector_variable_process",
+            "kratos_module" : "KratosMultiphysics",
+            "Parameters"    : {
+                "model_part_name" : "Structure.DISPLACEMENT_Dirichlet_line",
+                "variable_name"   : "DISPLACEMENT",
+                "constrained"     : [true,true,true],
+                "value"           : [0.0,0.0,0.0],
+                "interval"        : [0.0,"End"]
+            }
+        },{
+            "python_module" : "assign_vector_variable_process",
+            "kratos_module" : "KratosMultiphysics",
+            "Parameters"    : {
+                "model_part_name" : "Structure.DISPLACEMENT_Dirichlet_point",
+                "variable_name"   : "DISPLACEMENT",
+                "constrained"     : [true,true,true],
+                "value"           : [0.0,0.0,0.0],
+                "interval"        : [0.0,"End"]
+            }
+        },{
+            "python_module" : "assign_vector_variable_process",
+            "kratos_module" : "KratosMultiphysics",
+            "Parameters"    : {
+                "model_part_name" : "Structure.ROTATION_Dirichlet_point",
+                "variable_name"   : "ROTATION",
+                "constrained"     : [true,true,true],
+                "value"           : [0.0,0.0,0.0],
+                "interval"        : [0.0,"End"]
+            }
+        }],
+        "loads_process_list"       : [],
+        "list_other_processes"     : [{
+            "python_module"  : "point_output_process",
+            "kratos_module"  : "KratosMultiphysics",
+            "process_name"   : "PointOutputProcess",
+            "Parameters"            : {
+                "position"         : [0.0, 0.0, 48],
+                "model_part_name"  : "Structure.computing_domain",
+                "output_file_settings": {
+                    "file_name"   : "point_1",
+                    "folder_name" : "csd1_output"
+                },
+                "output_variables" : ["DISPLACEMENT","ACCELERATION"],
+                "entity_type"      : "element"
+            }
+        },{
+            "python_module"  : "point_output_process",
+            "kratos_module"  : "KratosMultiphysics",
+            "process_name"   : "PointOutputProcess",
+            "Parameters"            : {
+                "position"         : [0.0, 0.0, 92],
+                "model_part_name"  : "Structure.computing_domain",
+                "output_file_settings": {
+                    "file_name"   : "point_2",
+                    "folder_name" : "csd1_output"
+                },
+                "output_variables" : ["DISPLACEMENT","ACCELERATION"],
+                "entity_type"      : "element"
+            }
+        },{
+            "python_module"  : "point_output_process",
+            "kratos_module"  : "KratosMultiphysics",
+            "process_name"   : "PointOutputProcess",
+            "Parameters"            : {
+                "position"         : [0.0, 0.0, 136],
+                "model_part_name"  : "Structure.computing_domain",
+                "output_file_settings": {
+                    "file_name"   : "point_3",
+                    "folder_name" : "csd1_output"
+                },
+                "output_variables" : ["DISPLACEMENT","ACCELERATION"],
+                "entity_type"      : "element"
+            }
+        },{
+            "python_module"  : "point_output_process",
+            "kratos_module"  : "KratosMultiphysics",
+            "process_name"   : "PointOutputProcess",
+            "Parameters"            : {
+                "position"         : [0.0, 0.0, 180],
+                "model_part_name"  : "Structure.computing_domain",
+                "output_file_settings": {
+                    "file_name"   : "point_4",
+                    "folder_name" : "csd1_output"
+                },
+                "output_variables" : ["DISPLACEMENT","ACCELERATION"],
+                "entity_type"      : "element"
+            }
+        },{
+            "python_module"  : "point_output_process",
+            "kratos_module"  : "KratosMultiphysics",
+            "process_name"   : "PointOutputProcess",
+            "Parameters"            : {
+                "position"         : [22.5, 15, 180],
+                "model_part_name"  : "Structure.computing_domain",
+                "output_file_settings": {
+                    "file_name"   : "corner_point",
+                    "folder_name" : "csd1_output"
+                },
+                "output_variables" : ["DISPLACEMENT","ACCELERATION"],
+                "entity_type"      : "element"
+            }
+        },{
+            "python_module"  : "point_output_process",
+            "kratos_module"  : "KratosMultiphysics",
+            "process_name"   : "PointOutputProcess",
+            "Parameters"            : {
+                "position"         : [-4.23, 15, 180],
+                "model_part_name"  : "Structure.computing_domain",
+                "output_file_settings": {
+                    "file_name"   : "padova_accelerometer_1",
+                    "folder_name" : "csd1_output"
+                },
+                "output_variables" : ["DISPLACEMENT","ACCELERATION"],
+                "entity_type"      : "element"
+            }
+        },{
+            "python_module"  : "point_output_process",
+            "kratos_module"  : "KratosMultiphysics",
+            "process_name"   : "PointOutputProcess",
+            "Parameters"            : {
+                "position"         : [4.23, -15, 180],
+                "model_part_name"  : "Structure.computing_domain",
+                "output_file_settings": {
+                    "file_name"   : "padova_accelerometer_2",
+                    "folder_name" : "csd1_output"
+                },
+                "output_variables" : ["DISPLACEMENT","ACCELERATION"],
+                "entity_type"      : "element"
+            }
+        },{
+            "python_module"  : "point_output_process",
+            "kratos_module"  : "KratosMultiphysics",
+            "process_name"   : "PointOutputProcess",
+            "Parameters"            : {
+                "position"         : [22.5, 1.92, 180],
+                "model_part_name"  : "Structure.computing_domain",
+                "output_file_settings": {
+                    "file_name"   : "padova_accelerometer_3",
+                    "folder_name" : "csd1_output"
+                },
+                "output_variables" : ["DISPLACEMENT","ACCELERATION"],
+                "entity_type"      : "element"
+            }
+        },{
+            "python_module" : "compute_integral_value_process",
+            "kratos_module" : "KratosMultiphysics",
+            "process_name"  : "ComputeIntegralValueProcess",
+            "Parameters"    : {
+                "model_part_name"        : "Structure.PointLoad3D_Interface_Plates",
+                "write_output_file" : true,
+                "print_to_screen"   : false,
+                "variable_name"          : "POINT_LOAD",
+                "interval"               : [0.0,"End"],
+                "output_file_settings": {
+                    "file_name"   : "point_load_integral_val",
+                    "folder_name" : "csd1_output/"
+                }
+            }
+        },{
+            "python_module" : "compute_custom_base_reaction_process",
+            "kratos_module" : "KratosMultiphysics",
+            "process_name"  : "ComputeCustomBaseReactionProcess",
+            "Parameters"    : {
+                "model_part_name"        : "Structure.DISPLACEMENT_Dirichlet_line",
+                "write_drag_output_file" : true,
+                "print_drag_to_screen"   : false,
+                "reference_point"        : [0.0, 0.0, 0.0],
+                "interval"               : [0.0,"End"],
+                "output_file_settings": {
+                    "file_name"   : "base_reaction_line_displacement",
+                    "folder_name" : "csd1_output/"}
+            }
+        },{
+            "python_module" : "compute_custom_base_reaction_process",
+            "kratos_module" : "KratosMultiphysics",
+            "process_name"  : "ComputeCustomBaseReactionProcess",
+            "Parameters"    : {
+                "model_part_name"        : "Structure.DISPLACEMENT_Dirichlet_point",
+                "write_drag_output_file" : true,
+                "print_drag_to_screen"   : false,
+                "reference_point"        : [0.0, 0.0, 0.0],
+                "interval"               : [0.0,"End"],
+                "output_file_settings": {
+                    "file_name"   : "base_reaction_point_displacement",
+                    "folder_name" : "csd1_output/"}
+            }
+        },{
+            "python_module" : "compute_custom_base_reaction_process",
+            "kratos_module" : "KratosMultiphysics",
+            "process_name"  : "ComputeCustomBaseReactionProcess",
+            "Parameters"    : {
+                "model_part_name"        : "Structure.ROTATION_Dirichlet_point",
+                "write_drag_output_file" : true,
+                "print_drag_to_screen"   : false,
+                "reference_point"        : [0.0, 0.0, 0.0],
+                "interval"               : [0.0,"End"],
+                "output_file_settings": {
+                    "file_name"   : "base_reaction_point_rotation",
+                    "folder_name" : "csd1_output/"}
+            }
+        }]
+    },
+    "output_processes" : {
+        "gid_output" : [{
+            "python_module" : "gid_output_process",
+            "kratos_module" : "KratosMultiphysics",
+            "process_name"  : "GiDOutputProcess",
+            "help"          : "This process writes postprocessing files for GiD",
+            "Parameters"    : {
+                "model_part_name"        : "Structure.computing_domain",
+                "output_name"            : "generic_highrise",
+                "postprocess_parameters" : {
+                    "result_file_configuration" : {
+                        "gidpost_flags"       : {
+                            "GiDPostMode"           : "GiD_PostBinary",
+                            "WriteDeformedMeshFlag" : "WriteDeformed",
+                            "WriteConditionsFlag"   : "WriteConditions",
+                            "MultiFileFlag"         : "SingleFile"
+                        },
+                        "file_label"          : "step",
+                        "output_control_type" : "step",
+                        "output_frequency"    : 50,
+                        "body_output"         : true,
+                        "node_output"         : false,
+                        "skin_output"         : false,
+                        "plane_output"        : [],
+                        "nodal_results"       : ["DISPLACEMENT","REACTION","VELOCITY","ACCELERATION","ROTATION","REACTION_MOMENT","ANGULAR_VELOCITY","ANGULAR_ACCELERATION"],
+                        "gauss_point_results" : []
+                    },
+                    "point_data_configuration"  : []
+                }
+            }
+        }]
+    }
+}

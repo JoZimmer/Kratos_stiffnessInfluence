@@ -1,0 +1,37 @@
+{
+    "properties" : [{
+        "model_part_name" : "Structure.Parts_Group2",
+        "properties_id"   : 1,
+        "Material"        : {
+            "constitutive_law" : {
+                "name" : "LinearElasticPlaneStress2DLaw"
+            },
+            "Variables"        : {
+                "THICKNESS"     : 1.0,
+                "DENSITY"       : 7850.0,
+                "YOUNG_MODULUS" : 206900000000.0,
+                "POISSON_RATIO" : 0.29
+            },
+            "Tables"           : {}
+        }
+    },{
+        "model_part_name" : "Structure.Parts_Group1",
+        "properties_id"   : 2,
+        "Material"        : {
+            "constitutive_law" : {
+                "name" : "BeamConstitutiveLaw"
+            },
+            "Variables"        : {
+                "THICKNESS"         : 1.0,
+                "DENSITY"           : 7850.0,
+                "YOUNG_MODULUS"     : 206900000000.0,
+                "POISSON_RATIO"     : 0.29,
+                "CROSS_AREA"        : 1.0,
+                "TORSIONAL_INERTIA" : 1.0,
+                "I22"               : 1.0,
+                "I33"               : 1.0
+            },
+            "Tables"           : {}
+        }
+    }]
+}

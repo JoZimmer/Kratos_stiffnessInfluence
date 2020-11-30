@@ -1,0 +1,37 @@
+BeginZE C:/Users/pmt/LRZ Sync+Share/Statik/MasterThesis/MT21_Zimmer/HandOut/test_einheitzustand.gid/test_einheitzustand.vv
+   x -24.7030258178710938 24.7030258178710938
+   y 67.0687103271484375 -67.0687103271484375
+   z -78.3122329711914063 53.3122329711914063
+   e 21.9374103546142578
+   v 0.376083582639694214 -0.197765976190567017 -0.334530413150787354
+   r 0.841153502464294434
+   m 0.69795602560043335 0.414029806852340698 -0.584325909614562988 0 -0.711535930633544922 0.493301033973693848 -0.500370621681213379 0 0.0810802578926086426 0.765005528926849365 0.638899505138397217 0 0 0 0 1
+   c 0 0 12.5
+   pd 0
+   pno 0
+   pfo 0
+   pf 4
+   pv 0
+   NowUse 0
+   DrawingType 0
+   LightVector 90 90 150 0
+   OGLShadow(UseShadows) 0
+   OGLShadow(RenderMode) RenderFast
+   OGLShadow(ShadowBias) 0
+   OGLShadow(AmbientShadows) 0
+   OGLShadow(UseFBO) 0
+   OGLShadow(FBOSize) 0
+   OGLShadow(DimmedLightFactor) 0
+   OGLStereo(UseStereo) 0
+   OGLStereo(RelativeEyeDistance) 1
+   OGLStereo(FlipEyes) 0
+   OGLStereo(StereoMode) AnaglyphColors
+   OGLStereo(EyeDistance) 0.075
+   OGLStereo(LeftEyeDistance) 1 0 0 1
+   OGLStereo(RightEyeDistance) 0 1 1 1
+EndZE C:/Users/pmt/LRZ Sync+Share/Statik/MasterThesis/MT21_Zimmer/HandOut/test_einheitzustand.gid/test_einheitzustand.vv
+
+BeginMirror
+   Mirror 0 Angle 0.0 AngleFake -15.0 SizeFactor 2.0 HeightOffset 0.25 Color #d9e5f24d Backlight Off EdgeStyle No Type Scene DrawMode Mirror
+EndMirror
+
