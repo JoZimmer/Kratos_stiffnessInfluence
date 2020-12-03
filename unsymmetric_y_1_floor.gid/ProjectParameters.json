@@ -1,6 +1,6 @@
 {
     "problem_data"     : {
-        "problem_name"  : "unsymmetric_y",
+        "problem_name"  : "unsymmetric_y_1_floor",
         "parallel_type" : "OpenMP",
         "echo_level"    : 1,
         "start_time"    : 0.0,
@@ -14,7 +14,7 @@
         "analysis_type"                   : "non_linear",
         "model_import_settings"           : {
             "input_type"     : "mdpa",
-            "input_filename" : "unsymmetric_y"
+            "input_filename" : "unsymmetric_y_1_floor"
         },
         "material_import_settings"        : {
             "materials_filename" : "StructuralMaterials.json"
@@ -50,27 +50,17 @@
                 "variable_name"   : "DISPLACEMENT",
                 "interval"        : [0.0,"End"],
                 "constrained"     : [true,true,true],
-                "value"           : [0.0,0.0,0.0]
+                "value"           : [1.0,0.0,0.0]
             }
         },{
             "python_module" : "assign_vector_variable_process",
             "kratos_module" : "KratosMultiphysics",
             "Parameters"    : {
-                "model_part_name" : "Structure.DISPLACEMENT_plate_1",
+                "model_part_name" : "Structure.DISPLACEMENT_nodes_0",
                 "variable_name"   : "DISPLACEMENT",
                 "interval"        : [0.0,"End"],
-                "constrained"     : [true,true,true],
-                "value"           : [0.0,0.0,0.0]
-            }
-        },{
-            "python_module" : "assign_vector_variable_process",
-            "kratos_module" : "KratosMultiphysics",
-            "Parameters"    : {
-                "model_part_name" : "Structure.DISPLACEMENT_plate_2",
-                "variable_name"   : "DISPLACEMENT",
-                "interval"        : [0.0,"End"],
-                "constrained"     : [true,true,true],
-                "value"           : [0.0,0.0,0.0]
+                "constrained"     : [false,false,false],
+                "value"           : [null,null,null]
             }
         },{
             "python_module" : "assign_vector_variable_process",
@@ -78,7 +68,7 @@
             "Parameters"    : {
                 "model_part_name" : "Structure.ROTATION_BC_ground",
                 "variable_name"   : "ROTATION",
-                "interval"        : [0.0,"End"], 
+                "interval"        : [0.0,"End"],
                 "constrained"     : [true,true,true],
                 "value"           : [0.0,0.0,0.0]
             }
@@ -89,110 +79,22 @@
                 "model_part_name" : "Structure.ROTATION_plate_0",
                 "variable_name"   : "ROTATION",
                 "interval"        : [0.0,"End"],
-                "constrained"     : [true,true,true],
-                "value"           : [0.0,0.0,0.0]
+                "constrained"     : [false,false,false],
+                "value"           : [null,null,null]
             }
         },{
             "python_module" : "assign_vector_variable_process",
             "kratos_module" : "KratosMultiphysics",
             "Parameters"    : {
-                "model_part_name" : "Structure.ROTATION_plate_1",
+                "model_part_name" : "Structure.ROTATION_nodes_0",
                 "variable_name"   : "ROTATION",
                 "interval"        : [0.0,"End"],
                 "constrained"     : [true,true,true],
                 "value"           : [0.0,0.0,0.0]
-            }
-        },{
-            "python_module" : "assign_vector_variable_process",
-            "kratos_module" : "KratosMultiphysics",
-            "Parameters"    : {
-                "model_part_name" : "Structure.ROTATION_plate_2",
-                "variable_name"   : "ROTATION",
-                "interval"        : [0.0,"End"],
-                "constrained"     : [true,true,true],
-                "value"           : [0.0,0.0,0.0]
-            }
-        },{
-            "python_module" : "impose_mesh_motion_process",
-            "process_name"  : "ImposeMeshMotionProcess",
-            "Parameters"    : {
-                "model_part_name" : "Structure.DISPLACEMENT_plate_0",
-                "dxdy" : [0.0, 0.0],
-                "dtheta": 0,
-                "x0y0" : [0.0,0.0]
-            }
-        },{
-            "python_module" : "impose_mesh_motion_process",
-            "process_name"  : "ImposeMeshMotionProcess",
-            "Parameters"    : {
-                "model_part_name" : "Structure.DISPLACEMENT_plate_1",
-                "dxdy" : [0.0, 0.0],
-                "dtheta": 0,
-                "x0y0" : [0.0,0.0]
-            }
-        },{
-            "python_module" : "impose_mesh_motion_process",
-            "process_name"  : "ImposeMeshMotionProcess",
-            "Parameters"    : {
-                "model_part_name" : "Structure.DISPLACEMENT_plate_2",
-                "dxdy" : [0.0, 0.0],
-                "dtheta": 0,
-                "x0y0" : [0.0,0.0]
             }
         }],
         "loads_process_list"       : [],
-        "list_other_processes"     : [{
-            "python_module" : "compute_custom_base_reaction_process",
-            "process_name"  : "ComputeCustomBaseReactionProcess",
-            "Parameters"    : {
-                "model_part_name"        : "Structure.DISPLACEMENT_BC_ground",
-                "write_drag_output_file" : true,
-                "print_drag_to_screen"   : false,
-                "reference_point"        : [0.0, 0.0, 0.0],
-                "interval"               : [0.0,"End"],
-                "output_file_settings": {
-                    "file_name"   : "reaction_ground"}
-            }
-        },
-        {
-            "python_module" : "compute_custom_base_reaction_process",
-            "process_name"  : "ComputeCustomBaseReactionProcess",
-            "Parameters"    : {
-                "model_part_name"        : "Structure.DISPLACEMENT_plate_0",
-                "write_drag_output_file" : true,
-                "print_drag_to_screen"   : false,
-                "reference_point"        : [0.0, 0.0, 0.0],
-                "interval"               : [0.0,"End"],
-                "output_file_settings": {
-                    "file_name"   : "reaction_plate_0"}
-            }
-        },{
-            "python_module" : "compute_custom_base_reaction_process",
-            "process_name"  : "ComputeCustomBaseReactionProcess",
-            "Parameters"    : {
-                "model_part_name"        : "Structure.DISPLACEMENT_plate_1",
-                "write_drag_output_file" : true,
-                "print_drag_to_screen"   : false,
-                "reference_point"        : [0.0, 0.0, 0.0],
-                "interval"               : [0.0,"End"],
-                "output_file_settings": {
-                    "file_name"   : "reaction_plate_1"}
-            }
-        },{
-            "python_module" : "compute_custom_base_reaction_process",
-            "process_name"  : "ComputeCustomBaseReactionProcess",
-            "Parameters"    : {
-                "model_part_name"        : "Structure.DISPLACEMENT_plate_2",
-                "write_drag_output_file" : true,
-                "print_drag_to_screen"   : false,
-                "reference_point"        : [0.0, 0.0, 0.0],
-                "interval"               : [0.0,"End"],
-                "output_file_settings": {
-                    "file_name"   : "reaction_plate_2"}
-            }
-        }]
-
-        
+        "list_other_processes"     : []
     },
     "output_processes" : {
         "gid_output" : [{
@@ -202,7 +104,7 @@
             "help"          : "This process writes postprocessing files for GiD",
             "Parameters"    : {
                 "model_part_name"        : "Structure",
-                "output_name"            : "unsymmetric_y",
+                "output_name"            : "unsymmetric_y_1_floor",
                 "postprocess_parameters" : {
                     "result_file_configuration" : {
                         "gidpost_flags"               : {

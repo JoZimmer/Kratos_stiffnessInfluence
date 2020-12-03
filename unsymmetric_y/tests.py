@@ -1,9 +1,10 @@
 # from __future__ import print_function, absolute_import, division #makes KratosMultiphysics backward compatible with python 2.6 and 2.7
-
+#from kratos_custom_processes import *
 # import KratosMultiphysics
 # from KratosMultiphysics.StructuralMechanicsApplication.structural_mechanics_analysis import StructuralMechanicsAnalysis
 import os
 import shutil
+import numpy as np
 # with open("ProjectParametersCustom_JZ.json",'r') as parameter_file:
 #     parameters = KratosMultiphysics.Parameters(parameter_file.read())
 def order_files_in_folder(current_subdir_of_Kratos_stiffnessInfluence, dest_folder_name, file_suffix):
@@ -26,7 +27,13 @@ def move_and_rename_vtk_output (dest_folder_name, src_folder):
         os.rename(os.path.join(src_folder, filename), os.path.join(dest_folder_name, 'Structure_'+src_folder[-7:]+'.vtk'))
         os.rmdir(src_folder)
 
-for dirs, subdirs, files in os.walk('unsymmetric_y'):
-    for subdir in subdirs:
-        if subdir.startswith('vtk_output_comb'):
-            print (subdir)
+dofs = 3
+floor = 3
+
+for j in range(floor):
+    for i in range(floor):
+        for k in range(dofs):
+            print(j*dofs*dofs + i*dofs + k)
+    
+        #print(b)
+

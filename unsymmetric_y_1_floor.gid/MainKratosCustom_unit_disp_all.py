@@ -16,19 +16,6 @@ def continue_run():
     if stop == 'n':
         sys.exit()
 
-def ccw_rotate_point_around_z(point, angle = 1.0, origin = [0.0, 0.0, 0.0]):
-    """
-    Rotate a point counterclockwise by a given angle around a given origin.
-
-    The angle should be given in radians.
-    """
-    ox, oy = origin
-    px, py = point
-
-    qx = ox + math.cos(angle) * (px - ox) - math.sin(angle) * (py - oy)
-    qy = oy + math.sin(angle) * (px - ox) + math.cos(angle) * (py - oy)
-    return qx, qy
-
 def order_files_in_folder(dest_folder_name, file_suffix):
     dest_dir = dest_folder_name
     if not os.path.exists(dest_folder_name):
@@ -51,7 +38,12 @@ def move_and_rename_vtk_output (dest_folder_name):
 
 if __name__ == "__main__":
 
-
+    '''
+    the base combinations are applied one after the other
+    x displacement 1 m
+    y displacement 1 m 
+    z rotation 1 rad
+    '''
     base_combinations = [[1.0,0.0],[0.0,1.0],1.0,[0.0,0.0]] # x = 1, y= 1, theta = 1 °
     fixed = [[1,2],[-1,1],[-1,2]]
     combinations = {}
@@ -84,7 +76,7 @@ if __name__ == "__main__":
     # run a simulation for each combination 
     for my_comb in combinations:
         
-        with open("ProjectParametersCustom_JZ.json",'r') as parameter_file:
+        with open("ProjectParametersCustom_1.json",'r') as parameter_file:
             parameters = KratosMultiphysics.Parameters(parameter_file.read())
 
         # only mesh moving process is used 

@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "MainKratos.py", line 18, in <module>
+    simulation.Run()
+  File "C:\PROGRA~1\GiD\GID141~1.9D\PROBLE~1\kratos.gid\exec\kratos\KratosMultiphysics\analysis_stage.py", line 49, in Run
+    self.Initialize()
+  File "C:\PROGRA~1\GiD\GID141~1.9D\PROBLE~1\kratos.gid\exec\kratos\KratosMultiphysics\StructuralMechanicsApplication\structural_mechanics_analysis.py", line 53, in Initialize
+    super(StructuralMechanicsAnalysis, self).Initialize()
+  File "C:\PROGRA~1\GiD\GID141~1.9D\PROBLE~1\kratos.gid\exec\kratos\KratosMultiphysics\analysis_stage.py", line 84, in Initialize
+    self._GetSolver().PrepareModelPart()
+  File "C:\PROGRA~1\GiD\GID141~1.9D\PROBLE~1\kratos.gid\exec\kratos\KratosMultiphysics\StructuralMechanicsApplication\structural_mechanics_solver.py", line 199, in PrepareModelPart
+    self._execute_after_reading()
+  File "C:\PROGRA~1\GiD\GID141~1.9D\PROBLE~1\kratos.gid\exec\kratos\KratosMultiphysics\StructuralMechanicsApplication\structural_mechanics_solver.py", line 359, in _execute_after_reading
+    materials_imported = self.import_constitutive_laws()
+  File "C:\PROGRA~1\GiD\GID141~1.9D\PROBLE~1\kratos.gid\exec\kratos\KratosMultiphysics\StructuralMechanicsApplication\structural_mechanics_solver.py", line 332, in import_constitutive_laws
+    KratosMultiphysics.ReadMaterialsUtility(material_settings, self.model)
+RuntimeError: Error: The ModelPart named : "Parts_plate_0" was not found as SubModelPart of : "Structure". The total input string was "Structure.Parts_plate_0"
+
+
+
+
+in kratos/containers/model.cpp:149:Model::GetModelPart
+   kratos/containers/model.cpp:165:Model::GetModelPart
+   kratos/utilities/read_materials_utility.cpp:145:ReadMaterialsUtility::GetPropertyBlock
+   kratos/utilities/read_materials_utility.cpp:80:ReadMaterialsUtility::ReadMaterialsUtility
+

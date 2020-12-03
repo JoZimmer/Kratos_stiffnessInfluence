@@ -88,12 +88,10 @@ class ComputeCustomBaseReactionProcess(KratosMultiphysics.Process):
                 moment_reaction = node.GetSolutionStepValue(KratosMultiphysics.REACTION_MOMENT, 0)
 
                 # PMT: NOTE: sign is flipped to go from reaction to action
-                # NOTE flipped it back
                 fx += (1) * reaction[0]
                 fy += (1) * reaction[1]
                 fz += (1) * reaction[2]
-
-                #print (node.id, reaction[0])
+                
 
                 x = node.X - self.reference_x
                 y = node.Y - self.reference_y

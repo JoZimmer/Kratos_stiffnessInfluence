@@ -1,0 +1,37 @@
+BeginZE C:/Users/Johannes/Documents/TUM/5.MasterThesis/Kratos/unsymmetric_y_1_floor.gid/unsymmetric_y_1_floor.vv
+   x -43.5745277404785156 54.9746208190917969
+   y 29.0840911865234375 -36.5140838623046875
+   z -108.534011840820313 63.8444671630859375
+   e 18.8745861053466797
+   v -0.0957334730630728659 0.0933480386110532162 0.589939393866367845
+   r -0.796299414408510264
+   m 0.286515325307846069 0.92166370153427124 -0.261619865894317627 0 -0.957409858703613281 0.28561323881149292 -0.0423256456851959229 0 0.0357120819389820099 0.262604385614395142 0.964242517948150635 0 0 0 0 1
+   c -0.449296027421951294 -0.0531152747571468353 22.3447704315185547
+   pd 0
+   pno 0
+   pfo 0
+   pf 4
+   pv 0
+   NowUse 0
+   DrawingType 0
+   LightVector 90 90 150 0
+   OGLShadow(UseShadows) 0
+   OGLShadow(RenderMode) RenderNice
+   OGLShadow(ShadowBias) -0.002
+   OGLShadow(AmbientShadows) 1
+   OGLShadow(UseFBO) 0
+   OGLShadow(FBOSize) 2048
+   OGLShadow(DimmedLightFactor) 0.02
+   OGLStereo(UseStereo) 0
+   OGLStereo(RelativeEyeDistance) 1
+   OGLStereo(FlipEyes) 0
+   OGLStereo(StereoMode) AnaglyphColors
+   OGLStereo(EyeDistance) 0.075
+   OGLStereo(LeftEyeDistance) 1 0 0 1
+   OGLStereo(RightEyeDistance) 0 1 1 1
+EndZE C:/Users/Johannes/Documents/TUM/5.MasterThesis/Kratos/unsymmetric_y_1_floor.gid/unsymmetric_y_1_floor.vv
+
+BeginMirror
+   Mirror 0 Angle 0.0 AngleFake -15.0 SizeFactor 2.0 HeightOffset 0.25 Color #d9e5f24d Backlight Off EdgeStyle No Type Scene DrawMode Mirror
+EndMirror
+
